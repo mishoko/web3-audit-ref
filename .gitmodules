@@ -22,3 +22,7 @@
 	path = audit-refs/archethect-sc-auditor
 	url = https://github.com/Archethect/sc-auditor
 	update = none
+[submodule "audit-refs/auditmos-skills"]
+	path = audit-refs/auditmos-skills
+	url = https://github.com/auditmos/skills
+	update = none

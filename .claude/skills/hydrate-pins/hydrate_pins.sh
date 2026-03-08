@@ -21,6 +21,7 @@ PIN_CYFRIN_SOLSKILL="5fec89edae882c19a32ec996a1846dace53eafeb"
 PIN_KADENZIPFEL_SCV_SCAN="dcb0201a119a21bcf04ea4b991561f73360ad68c"
 PIN_QUILLAI_NETWORK_QS_SKILLS="75d48a8a4abbf7e6938a48beddc2585ee8e4e27f"
 PIN_ARCHETHECT_SC_AUDITOR="a7f06020b8ecca4b35ffe39d4eda42cb2293a03a"
+PIN_AUDITMOS_SKILLS="c958b3abb0ce189d9f39a05caf94b5a5da655010"
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
@@ -33,12 +34,13 @@ git submodule update --init --checkout --no-recommend-shallow audit-refs/cyfrin-
 git submodule update --init --checkout --no-recommend-shallow audit-refs/kadenzipfel-scv-scan
 git submodule update --init --checkout --no-recommend-shallow audit-refs/quillai-network-qs_skills
 git submodule update --init --checkout --no-recommend-shallow audit-refs/archethect-sc-auditor
+git submodule update --init --checkout --no-recommend-shallow audit-refs/auditmos-skills
 
 command -v python3 >/dev/null 2>&1 || abort "python3 is required to configure the submodule block guard."
 
 info "Configuring local git to block direct submodule updates..."
 BLOCK_CMD='!{ printf "\n\033[1;31m[BLOCKED]\033[0m Direct submodule update is not allowed.\n         Run ./update_ref.sh <ref-name> instead.\n         See AGENTS.md for the required workflow.\n\n" >&2; exit 1; }'
-REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills" "audit-refs/cyfrin-solskill" "audit-refs/kadenzipfel-scv-scan" "audit-refs/quillai-network-qs_skills" "audit-refs/archethect-sc-auditor")
+REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills" "audit-refs/cyfrin-solskill" "audit-refs/kadenzipfel-scv-scan" "audit-refs/quillai-network-qs_skills" "audit-refs/archethect-sc-auditor" "audit-refs/auditmos-skills")
 for REF in "${REFS[@]}"; do
     git config submodule."${REF}".update "BLOCK_PLACEHOLDER"
 done
@@ -84,6 +86,12 @@ echo "  Pinned SHA : $PIN_ARCHETHECT_SC_AUDITOR"
 echo "  Commit msg : $(git -C audit-refs/archethect-sc-auditor log -1 --pretty='%s' "$PIN_ARCHETHECT_SC_AUDITOR")"
 git -C audit-refs/archethect-sc-auditor checkout "$PIN_ARCHETHECT_SC_AUDITOR"
 
+info "Pinning audit-refs/auditmos-skills..."
+echo "  Repository : https://github.com/auditmos/skills"
+echo "  Pinned SHA : $PIN_AUDITMOS_SKILLS"
+echo "  Commit msg : $(git -C audit-refs/auditmos-skills log -1 --pretty='%s' "$PIN_AUDITMOS_SKILLS")"
+git -C audit-refs/auditmos-skills checkout "$PIN_AUDITMOS_SKILLS"
+
 info "Verifying SHAs match expected pinned commits..."
 verify_sha "pashov-skills" "audit-refs/pashov-skills" "$PIN_PASHOV_SKILLS"
 verify_sha "trailofbits-skills" "audit-refs/trailofbits-skills" "$PIN_TRAILOFBITS_SKILLS"
@@ -91,6 +99,7 @@ verify_sha "cyfrin-solskill" "audit-refs/cyfrin-solskill" "$PIN_CYFRIN_SOLSKILL"
 verify_sha "kadenzipfel-scv-scan" "audit-refs/kadenzipfel-scv-scan" "$PIN_KADENZIPFEL_SCV_SCAN"
 verify_sha "quillai-network-qs_skills" "audit-refs/quillai-network-qs_skills" "$PIN_QUILLAI_NETWORK_QS_SKILLS"
 verify_sha "archethect-sc-auditor" "audit-refs/archethect-sc-auditor" "$PIN_ARCHETHECT_SC_AUDITOR"
+verify_sha "auditmos-skills" "audit-refs/auditmos-skills" "$PIN_AUDITMOS_SKILLS"
 
 echo ""
 ok "Setup complete. All references are pinned to audited commits."

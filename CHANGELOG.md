@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/auditmos-skills
+- **Repository:** https://github.com/auditmos/skills
+- **Pinned SHA:** `c958b3abb0ce189d9f39a05caf94b5a5da655010`
+- **Commit message:** `first release`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/archethect-sc-auditor
 - **Repository:** https://github.com/Archethect/sc-auditor
 - **Pinned SHA:** `a7f06020b8ecca4b35ffe39d4eda42cb2293a03a`
