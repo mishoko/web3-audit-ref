@@ -88,6 +88,7 @@ Each script stages changes but **never commits** — you review the diff and com
 | `audit-refs/archethect-sc-auditor` | Archethect/sc-auditor | `a7f06020` |
 | `audit-refs/auditmos-skills` | auditmos/skills | `c958b3ab` |
 | `audit-refs/openzeppelin-openzeppelin-skills` | OpenZeppelin/openzeppelin-skills | `0ba03a1d` |
+| `audit-refs/forefy--context` | forefy/.context | `f9cc7443` |
 
 Full SHAs and review notes are in [`CHANGELOG.md`](CHANGELOG.md).
 

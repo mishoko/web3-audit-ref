@@ -30,3 +30,7 @@
 	path = audit-refs/openzeppelin-openzeppelin-skills
 	url = https://github.com/OpenZeppelin/openzeppelin-skills
 	update = none
+[submodule "audit-refs/forefy--context"]
+	path = audit-refs/forefy--context
+	url = https://github.com/forefy/.context
+	update = none

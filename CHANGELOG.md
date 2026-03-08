@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/forefy--context
+- **Repository:** https://github.com/forefy/.context
+- **Pinned SHA:** `f9cc74433fe22e1593df38608e13226b7bfc04d0`
+- **Commit message:** `Fix char format`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/openzeppelin-openzeppelin-skills
 - **Repository:** https://github.com/OpenZeppelin/openzeppelin-skills
 - **Pinned SHA:** `0ba03a1dae8aee52d6d945d060eceaa74f7eee24`
