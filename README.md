@@ -83,6 +83,7 @@ Each script stages changes but **never commits** — you review the diff and com
 | `audit-refs/pashov-skills` | pashov/skills | `579dca98` |
 | `audit-refs/trailofbits-skills` | trailofbits/skills | `c6097699` |
 | `audit-refs/cyfrin-solskill` | Cyfrin/solskill | `5fec89ed` |
+| `audit-refs/kadenzipfel-scv-scan` | kadenzipfel/scv-scan | `dcb0201a` |
 
 Full SHAs and review notes are in [`CHANGELOG.md`](CHANGELOG.md).
 

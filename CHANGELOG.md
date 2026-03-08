@@ -4,6 +4,14 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/kadenzipfel-scv-scan
+- **Repository:** https://github.com/kadenzipfel/scv-scan
+- **Pinned SHA:** `dcb0201a119a21bcf04ea4b991561f73360ad68c`
+- **Commit message:** `Fix typo in README description`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
 ### audit-refs/cyfrin-solskill
 - **Repository:** https://github.com/Cyfrin/solskill
 - **Pinned SHA:** `5fec89edae882c19a32ec996a1846dace53eafeb`

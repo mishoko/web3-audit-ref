@@ -10,3 +10,7 @@
 	path = audit-refs/cyfrin-solskill
 	url = https://github.com/Cyfrin/solskill
 	update = none
+[submodule "audit-refs/kadenzipfel-scv-scan"]
+	path = audit-refs/kadenzipfel-scv-scan
+	url = https://github.com/kadenzipfel/scv-scan
+	update = none
