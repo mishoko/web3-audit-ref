@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/0xiehnnkta-nemesis-auditor
+- **Repository:** https://github.com/0xiehnnkta/nemesis-auditor
+- **Pinned SHA:** `83c28b74110329447f031f8727c2c409b14d6976`
+- **Commit message:** `Initial commit: Nemesis Agent -- iterative deep-logic security audit agent for Claude Code`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/hackenproof-public-skills
 - **Repository:** https://github.com/hackenproof-public/skills
 - **Pinned SHA:** `4bdc863bfa8209e23e47395096f7b29ab01baf1a`

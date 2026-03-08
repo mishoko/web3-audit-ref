@@ -38,3 +38,7 @@
 	path = audit-refs/hackenproof-public-skills
 	url = https://github.com/hackenproof-public/skills
 	update = none
+[submodule "audit-refs/0xiehnnkta-nemesis-auditor"]
+	path = audit-refs/0xiehnnkta-nemesis-auditor
+	url = https://github.com/0xiehnnkta/nemesis-auditor
+	update = none
