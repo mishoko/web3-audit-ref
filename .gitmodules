@@ -1,0 +1,4 @@
+[submodule "audit-refs/pashov-skills"]
+	path = audit-refs/pashov-skills
+	url = https://github.com/pashov/skills
+	update = none

@@ -80,6 +80,7 @@ Each script stages changes but **never commits** — you review the diff and com
 
 | Reference | Repository | Pinned SHA |
 |---|---|---|
+| `audit-refs/pashov-skills` | pashov/skills | `579dca98` |
 
 Full SHAs and review notes are in [`CHANGELOG.md`](CHANGELOG.md).
 
