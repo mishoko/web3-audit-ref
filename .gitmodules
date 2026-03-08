@@ -26,3 +26,7 @@
 	path = audit-refs/auditmos-skills
 	url = https://github.com/auditmos/skills
 	update = none
+[submodule "audit-refs/openzeppelin-openzeppelin-skills"]
+	path = audit-refs/openzeppelin-openzeppelin-skills
+	url = https://github.com/OpenZeppelin/openzeppelin-skills
+	update = none

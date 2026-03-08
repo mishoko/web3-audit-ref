@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/openzeppelin-openzeppelin-skills
+- **Repository:** https://github.com/OpenZeppelin/openzeppelin-skills
+- **Pinned SHA:** `0ba03a1dae8aee52d6d945d060eceaa74f7eee24`
+- **Commit message:** `Update links`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/auditmos-skills
 - **Repository:** https://github.com/auditmos/skills
 - **Pinned SHA:** `c958b3abb0ce189d9f39a05caf94b5a5da655010`
