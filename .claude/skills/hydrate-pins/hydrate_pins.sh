@@ -17,6 +17,7 @@ source "$(dirname "$0")/../lib.sh"
 # Document your review in CHANGELOG.md before updating.
 PIN_PASHOV_SKILLS="579dca98e5ec81852d6e032c99d19b6cfcdb5fa4"
 PIN_TRAILOFBITS_SKILLS="c6097699e4553f0dda4db615330f4a5097c4ff99"
+PIN_CYFRIN_SOLSKILL="5fec89edae882c19a32ec996a1846dace53eafeb"
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
@@ -25,12 +26,13 @@ PIN_TRAILOFBITS_SKILLS="c6097699e4553f0dda4db615330f4a5097c4ff99"
 info "Initializing git submodules (fetch only, no auto-execution)..."
 git submodule update --init --checkout --no-recommend-shallow audit-refs/pashov-skills
 git submodule update --init --checkout --no-recommend-shallow audit-refs/trailofbits-skills
+git submodule update --init --checkout --no-recommend-shallow audit-refs/cyfrin-solskill
 
 command -v python3 >/dev/null 2>&1 || abort "python3 is required to configure the submodule block guard."
 
 info "Configuring local git to block direct submodule updates..."
 BLOCK_CMD='!{ printf "\n\033[1;31m[BLOCKED]\033[0m Direct submodule update is not allowed.\n         Run ./update_ref.sh <ref-name> instead.\n         See AGENTS.md for the required workflow.\n\n" >&2; exit 1; }'
-REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills")
+REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills" "audit-refs/cyfrin-solskill")
 for REF in "${REFS[@]}"; do
     git config submodule."${REF}".update "BLOCK_PLACEHOLDER"
 done
@@ -52,9 +54,16 @@ echo "  Pinned SHA : $PIN_TRAILOFBITS_SKILLS"
 echo "  Commit msg : $(git -C audit-refs/trailofbits-skills log -1 --pretty='%s' "$PIN_TRAILOFBITS_SKILLS")"
 git -C audit-refs/trailofbits-skills checkout "$PIN_TRAILOFBITS_SKILLS"
 
+info "Pinning audit-refs/cyfrin-solskill..."
+echo "  Repository : https://github.com/Cyfrin/solskill"
+echo "  Pinned SHA : $PIN_CYFRIN_SOLSKILL"
+echo "  Commit msg : $(git -C audit-refs/cyfrin-solskill log -1 --pretty='%s' "$PIN_CYFRIN_SOLSKILL")"
+git -C audit-refs/cyfrin-solskill checkout "$PIN_CYFRIN_SOLSKILL"
+
 info "Verifying SHAs match expected pinned commits..."
 verify_sha "pashov-skills" "audit-refs/pashov-skills" "$PIN_PASHOV_SKILLS"
 verify_sha "trailofbits-skills" "audit-refs/trailofbits-skills" "$PIN_TRAILOFBITS_SKILLS"
+verify_sha "cyfrin-solskill" "audit-refs/cyfrin-solskill" "$PIN_CYFRIN_SOLSKILL"
 
 echo ""
 ok "Setup complete. All references are pinned to audited commits."
