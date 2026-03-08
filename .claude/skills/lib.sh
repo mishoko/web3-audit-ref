@@ -129,16 +129,34 @@ safe_mv() {
 # ---------------------------------------------------------------------------
 # CHANGELOG helpers
 # ---------------------------------------------------------------------------
-# Prepend an entry to CHANGELOG.md (before the first ## [...] line)
+# Prepend an entry to CHANGELOG.md.
+# If a same-day header already exists (e.g., "## [Added] — 2026-03-08"),
+# append the new sub-entry under it instead of creating a duplicate header.
 prepend_changelog() {
     local entry="$1"
+    local today
+    today=$(date +%Y-%m-%d)
+    local header="## [Added] — ${today}"
     local tmp
     tmp=$(mktemp)
-    {
-        awk '/^## \[/{exit} {print}' CHANGELOG.md
-        printf '%s\n' "$entry"
-        awk '/^## \[/{found=1} found{print}' CHANGELOG.md
-    } > "$tmp" && mv "$tmp" CHANGELOG.md
+
+    if grep -qF "$header" CHANGELOG.md; then
+        # Same-day header exists — extract just the sub-entry (skip the header line)
+        local sub_entry
+        sub_entry=$(printf '%s\n' "$entry" | sed '1{/^## \[/d;}')
+        # Insert sub-entry right after the existing header line
+        awk -v hdr="$header" -v sub="$sub_entry" '
+            $0 == hdr && !done { print; printf "%s\n", sub; done=1; next }
+            { print }
+        ' CHANGELOG.md > "$tmp" && mv "$tmp" CHANGELOG.md
+    else
+        # No same-day header — prepend normally
+        {
+            awk '/^## \[/{exit} {print}' CHANGELOG.md
+            printf '%s\n' "$entry"
+            awk '/^## \[/{found=1} found{print}' CHANGELOG.md
+        } > "$tmp" && mv "$tmp" CHANGELOG.md
+    fi
     git add CHANGELOG.md
     ok "CHANGELOG.md updated."
 }

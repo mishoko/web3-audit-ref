@@ -91,6 +91,13 @@ fi
 warn "Proceeding to add ${REF_NAME} at ${PIN_SHA:0:8}."
 
 # --- Step 2: Add submodule ---
+# Clean up stale .git/modules cache from previous failed attempts
+GIT_MOD_CACHE=".git/modules/${REF_PATH}"
+if [ -d "$GIT_MOD_CACHE" ]; then
+    warn "Stale module cache found at ${GIT_MOD_CACHE} — removing."
+    rm -rf "$GIT_MOD_CACHE"
+fi
+
 info "Adding submodule..."
 git submodule add "$REPO_URL" "$REF_PATH"
 git config -f .gitmodules submodule."${REF_PATH}".update none
