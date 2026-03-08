@@ -2,3 +2,7 @@
 	path = audit-refs/pashov-skills
 	url = https://github.com/pashov/skills
 	update = none
+[submodule "audit-refs/trailofbits-skills"]
+	path = audit-refs/trailofbits-skills
+	url = https://github.com/trailofbits/skills
+	update = none
