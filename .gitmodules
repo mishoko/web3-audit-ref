@@ -14,3 +14,7 @@
 	path = audit-refs/kadenzipfel-scv-scan
 	url = https://github.com/kadenzipfel/scv-scan
 	update = none
+[submodule "audit-refs/quillai-network-qs_skills"]
+	path = audit-refs/quillai-network-qs_skills
+	url = https://github.com/quillai-network/qs_skills
+	update = none

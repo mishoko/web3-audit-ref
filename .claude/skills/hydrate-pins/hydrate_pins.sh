@@ -19,6 +19,7 @@ PIN_PASHOV_SKILLS="579dca98e5ec81852d6e032c99d19b6cfcdb5fa4"
 PIN_TRAILOFBITS_SKILLS="c6097699e4553f0dda4db615330f4a5097c4ff99"
 PIN_CYFRIN_SOLSKILL="5fec89edae882c19a32ec996a1846dace53eafeb"
 PIN_KADENZIPFEL_SCV_SCAN="dcb0201a119a21bcf04ea4b991561f73360ad68c"
+PIN_QUILLAI_NETWORK_QS_SKILLS="75d48a8a4abbf7e6938a48beddc2585ee8e4e27f"
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
@@ -29,12 +30,13 @@ git submodule update --init --checkout --no-recommend-shallow audit-refs/pashov-
 git submodule update --init --checkout --no-recommend-shallow audit-refs/trailofbits-skills
 git submodule update --init --checkout --no-recommend-shallow audit-refs/cyfrin-solskill
 git submodule update --init --checkout --no-recommend-shallow audit-refs/kadenzipfel-scv-scan
+git submodule update --init --checkout --no-recommend-shallow audit-refs/quillai-network-qs_skills
 
 command -v python3 >/dev/null 2>&1 || abort "python3 is required to configure the submodule block guard."
 
 info "Configuring local git to block direct submodule updates..."
 BLOCK_CMD='!{ printf "\n\033[1;31m[BLOCKED]\033[0m Direct submodule update is not allowed.\n         Run ./update_ref.sh <ref-name> instead.\n         See AGENTS.md for the required workflow.\n\n" >&2; exit 1; }'
-REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills" "audit-refs/cyfrin-solskill" "audit-refs/kadenzipfel-scv-scan")
+REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills" "audit-refs/cyfrin-solskill" "audit-refs/kadenzipfel-scv-scan" "audit-refs/quillai-network-qs_skills")
 for REF in "${REFS[@]}"; do
     git config submodule."${REF}".update "BLOCK_PLACEHOLDER"
 done
@@ -68,11 +70,18 @@ echo "  Pinned SHA : $PIN_KADENZIPFEL_SCV_SCAN"
 echo "  Commit msg : $(git -C audit-refs/kadenzipfel-scv-scan log -1 --pretty='%s' "$PIN_KADENZIPFEL_SCV_SCAN")"
 git -C audit-refs/kadenzipfel-scv-scan checkout "$PIN_KADENZIPFEL_SCV_SCAN"
 
+info "Pinning audit-refs/quillai-network-qs_skills..."
+echo "  Repository : https://github.com/quillai-network/qs_skills"
+echo "  Pinned SHA : $PIN_QUILLAI_NETWORK_QS_SKILLS"
+echo "  Commit msg : $(git -C audit-refs/quillai-network-qs_skills log -1 --pretty='%s' "$PIN_QUILLAI_NETWORK_QS_SKILLS")"
+git -C audit-refs/quillai-network-qs_skills checkout "$PIN_QUILLAI_NETWORK_QS_SKILLS"
+
 info "Verifying SHAs match expected pinned commits..."
 verify_sha "pashov-skills" "audit-refs/pashov-skills" "$PIN_PASHOV_SKILLS"
 verify_sha "trailofbits-skills" "audit-refs/trailofbits-skills" "$PIN_TRAILOFBITS_SKILLS"
 verify_sha "cyfrin-solskill" "audit-refs/cyfrin-solskill" "$PIN_CYFRIN_SOLSKILL"
 verify_sha "kadenzipfel-scv-scan" "audit-refs/kadenzipfel-scv-scan" "$PIN_KADENZIPFEL_SCV_SCAN"
+verify_sha "quillai-network-qs_skills" "audit-refs/quillai-network-qs_skills" "$PIN_QUILLAI_NETWORK_QS_SKILLS"
 
 echo ""
 ok "Setup complete. All references are pinned to audited commits."

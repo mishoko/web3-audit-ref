@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/quillai-network-qs_skills
+- **Repository:** https://github.com/quillai-network/qs_skills
+- **Pinned SHA:** `75d48a8a4abbf7e6938a48beddc2585ee8e4e27f`
+- **Commit message:** `Merge pull request #2 from michaeldim/fix/install-repo-name-typo`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/kadenzipfel-scv-scan
 - **Repository:** https://github.com/kadenzipfel/scv-scan
 - **Pinned SHA:** `dcb0201a119a21bcf04ea4b991561f73360ad68c`
