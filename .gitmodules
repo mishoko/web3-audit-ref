@@ -34,3 +34,7 @@
 	path = audit-refs/forefy--context
 	url = https://github.com/forefy/.context
 	update = none
+[submodule "audit-refs/hackenproof-public-skills"]
+	path = audit-refs/hackenproof-public-skills
+	url = https://github.com/hackenproof-public/skills
+	update = none

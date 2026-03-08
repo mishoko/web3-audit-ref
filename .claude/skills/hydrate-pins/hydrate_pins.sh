@@ -24,6 +24,7 @@ PIN_ARCHETHECT_SC_AUDITOR="a7f06020b8ecca4b35ffe39d4eda42cb2293a03a"
 PIN_AUDITMOS_SKILLS="c958b3abb0ce189d9f39a05caf94b5a5da655010"
 PIN_OPENZEPPELIN_OPENZEPPELIN_SKILLS="0ba03a1dae8aee52d6d945d060eceaa74f7eee24"
 PIN_FOREFY__CONTEXT="f9cc74433fe22e1593df38608e13226b7bfc04d0"
+PIN_HACKENPROOF_PUBLIC_SKILLS="4bdc863bfa8209e23e47395096f7b29ab01baf1a"
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
@@ -39,12 +40,13 @@ git submodule update --init --checkout --no-recommend-shallow audit-refs/archeth
 git submodule update --init --checkout --no-recommend-shallow audit-refs/auditmos-skills
 git submodule update --init --checkout --no-recommend-shallow audit-refs/openzeppelin-openzeppelin-skills
 git submodule update --init --checkout --no-recommend-shallow audit-refs/forefy--context
+git submodule update --init --checkout --no-recommend-shallow audit-refs/hackenproof-public-skills
 
 command -v python3 >/dev/null 2>&1 || abort "python3 is required to configure the submodule block guard."
 
 info "Configuring local git to block direct submodule updates..."
 BLOCK_CMD='!{ printf "\n\033[1;31m[BLOCKED]\033[0m Direct submodule update is not allowed.\n         Run ./update_ref.sh <ref-name> instead.\n         See AGENTS.md for the required workflow.\n\n" >&2; exit 1; }'
-REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills" "audit-refs/cyfrin-solskill" "audit-refs/kadenzipfel-scv-scan" "audit-refs/quillai-network-qs_skills" "audit-refs/archethect-sc-auditor" "audit-refs/auditmos-skills" "audit-refs/openzeppelin-openzeppelin-skills" "audit-refs/forefy--context")
+REFS=("audit-refs/pashov-skills" "audit-refs/trailofbits-skills" "audit-refs/cyfrin-solskill" "audit-refs/kadenzipfel-scv-scan" "audit-refs/quillai-network-qs_skills" "audit-refs/archethect-sc-auditor" "audit-refs/auditmos-skills" "audit-refs/openzeppelin-openzeppelin-skills" "audit-refs/forefy--context" "audit-refs/hackenproof-public-skills")
 for REF in "${REFS[@]}"; do
     git config submodule."${REF}".update "BLOCK_PLACEHOLDER"
 done
@@ -108,6 +110,12 @@ echo "  Pinned SHA : $PIN_FOREFY__CONTEXT"
 echo "  Commit msg : $(git -C audit-refs/forefy--context log -1 --pretty='%s' "$PIN_FOREFY__CONTEXT")"
 git -C audit-refs/forefy--context checkout "$PIN_FOREFY__CONTEXT"
 
+info "Pinning audit-refs/hackenproof-public-skills..."
+echo "  Repository : https://github.com/hackenproof-public/skills"
+echo "  Pinned SHA : $PIN_HACKENPROOF_PUBLIC_SKILLS"
+echo "  Commit msg : $(git -C audit-refs/hackenproof-public-skills log -1 --pretty='%s' "$PIN_HACKENPROOF_PUBLIC_SKILLS")"
+git -C audit-refs/hackenproof-public-skills checkout "$PIN_HACKENPROOF_PUBLIC_SKILLS"
+
 info "Verifying SHAs match expected pinned commits..."
 verify_sha "pashov-skills" "audit-refs/pashov-skills" "$PIN_PASHOV_SKILLS"
 verify_sha "trailofbits-skills" "audit-refs/trailofbits-skills" "$PIN_TRAILOFBITS_SKILLS"
@@ -118,6 +126,7 @@ verify_sha "archethect-sc-auditor" "audit-refs/archethect-sc-auditor" "$PIN_ARCH
 verify_sha "auditmos-skills" "audit-refs/auditmos-skills" "$PIN_AUDITMOS_SKILLS"
 verify_sha "openzeppelin-openzeppelin-skills" "audit-refs/openzeppelin-openzeppelin-skills" "$PIN_OPENZEPPELIN_OPENZEPPELIN_SKILLS"
 verify_sha "forefy--context" "audit-refs/forefy--context" "$PIN_FOREFY__CONTEXT"
+verify_sha "hackenproof-public-skills" "audit-refs/hackenproof-public-skills" "$PIN_HACKENPROOF_PUBLIC_SKILLS"
 
 echo ""
 ok "Setup complete. All references are pinned to audited commits."

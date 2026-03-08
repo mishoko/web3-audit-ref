@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/hackenproof-public-skills
+- **Repository:** https://github.com/hackenproof-public/skills
+- **Pinned SHA:** `4bdc863bfa8209e23e47395096f7b29ab01baf1a`
+- **Commit message:** `Update severity-mapping.md`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/forefy--context
 - **Repository:** https://github.com/forefy/.context
 - **Pinned SHA:** `f9cc74433fe22e1593df38608e13226b7bfc04d0`

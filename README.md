@@ -89,6 +89,7 @@ Each script stages changes but **never commits** — you review the diff and com
 | `audit-refs/auditmos-skills` | auditmos/skills | `c958b3ab` |
 | `audit-refs/openzeppelin-openzeppelin-skills` | OpenZeppelin/openzeppelin-skills | `0ba03a1d` |
 | `audit-refs/forefy--context` | forefy/.context | `f9cc7443` |
+| `audit-refs/hackenproof-public-skills` | hackenproof-public/skills | `4bdc863b` |
 
 Full SHAs and review notes are in [`CHANGELOG.md`](CHANGELOG.md).
 
