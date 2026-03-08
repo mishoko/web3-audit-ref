@@ -142,13 +142,15 @@ prepend_changelog() {
 
     if grep -qF "$header" CHANGELOG.md; then
         # Same-day header exists — extract just the sub-entry (skip the header line)
-        local sub_entry
-        sub_entry=$(printf '%s\n' "$entry" | sed '1{/^## \[/d;}')
+        local sub_file
+        sub_file=$(mktemp)
+        printf '%s\n' "$entry" | sed '1{/^## \[/d;}' > "$sub_file"
         # Insert sub-entry right after the existing header line
-        awk -v hdr="$header" -v sub="$sub_entry" '
-            $0 == hdr && !done { print; printf "%s\n", sub; done=1; next }
+        awk -v hdr="$header" -v sf="$sub_file" '
+            $0 == hdr && !done { print; while ((getline line < sf) > 0) print line; done=1; next }
             { print }
         ' CHANGELOG.md > "$tmp" && mv "$tmp" CHANGELOG.md
+        rm "$sub_file"
     else
         # No same-day header — prepend normally
         {
