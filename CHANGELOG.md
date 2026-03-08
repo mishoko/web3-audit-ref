@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/archethect-sc-auditor
+- **Repository:** https://github.com/Archethect/sc-auditor
+- **Pinned SHA:** `a7f06020b8ecca4b35ffe39d4eda42cb2293a03a`
+- **Commit message:** `sc-auditor full commit v0.3.0`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/quillai-network-qs_skills
 - **Repository:** https://github.com/quillai-network/qs_skills
 - **Pinned SHA:** `75d48a8a4abbf7e6938a48beddc2585ee8e4e27f`

@@ -18,3 +18,7 @@
 	path = audit-refs/quillai-network-qs_skills
 	url = https://github.com/quillai-network/qs_skills
 	update = none
+[submodule "audit-refs/archethect-sc-auditor"]
+	path = audit-refs/archethect-sc-auditor
+	url = https://github.com/Archethect/sc-auditor
+	update = none
