@@ -42,3 +42,7 @@
 	path = audit-refs/0xiehnnkta-nemesis-auditor
 	url = https://github.com/0xiehnnkta/nemesis-auditor
 	update = none
+[submodule "audit-refs/austintgriffith-evm-audit-skills"]
+	path = audit-refs/austintgriffith-evm-audit-skills
+	url = https://github.com/austintgriffith/evm-audit-skills
+	update = none

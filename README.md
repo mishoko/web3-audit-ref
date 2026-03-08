@@ -91,6 +91,7 @@ Each script stages changes but **never commits** — you review the diff and com
 | `audit-refs/forefy--context` | forefy/.context | `f9cc7443` |
 | `audit-refs/hackenproof-public-skills` | hackenproof-public/skills | `4bdc863b` |
 | `audit-refs/0xiehnnkta-nemesis-auditor` | 0xiehnnkta/nemesis-auditor | `83c28b74` |
+| `audit-refs/austintgriffith-evm-audit-skills` | austintgriffith/evm-audit-skills | `071192ce` |
 
 Full SHAs and review notes are in [`CHANGELOG.md`](CHANGELOG.md).
 

@@ -4,6 +4,15 @@ All submodule SHA changes must be documented here with the reviewer's notes.
 This file is the audit trail for the auditor.
 ## [Added] — 2026-03-08
 
+### audit-refs/austintgriffith-evm-audit-skills
+- **Repository:** https://github.com/austintgriffith/evm-audit-skills
+- **Pinned SHA:** `071192ce7e40068f21eda63652848d298815f68e`
+- **Commit message:** `Add full attribution and thanks section`
+- **Review notes:** Human reviewed and approved at invocation.
+
+---
+
+
 ### audit-refs/0xiehnnkta-nemesis-auditor
 - **Repository:** https://github.com/0xiehnnkta/nemesis-auditor
 - **Pinned SHA:** `83c28b74110329447f031f8727c2c409b14d6976`
